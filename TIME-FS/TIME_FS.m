@@ -81,7 +81,7 @@ end
 end
 
 function f=obj_fun(Xhat,W,Z,QW,alpha,A,M,P,options)
-%% input 
+%% Input 
 % Xhat: The imputed multi-view dataset
 % W: Feature selection matrix 
 % Z: Tensor formed by stacking low-dimensional representations of views.
@@ -91,7 +91,7 @@ function f=obj_fun(Xhat,W,Z,QW,alpha,A,M,P,options)
 % M: Concensus anchor graph
 % P: Anchor preference weight matrix;
 % options: Parameters 
-%% ouput
+%% output
 % f: objective function value
 
 V=size(Xhat,2);
@@ -113,12 +113,12 @@ clear f1 f2 f3 f4
 end
 
 function A = updateA(Z,M,P)
-%% input 
+%% Input 
 % Z: Tensor formed by stacking low-dimensional representations of views
-% M: Concensus anchor graph
+% M: Consensus anchor graph
 % P: View preference weight matrix
 
-%% ouput
+%% output
 % A: Consensus anchor matrix
 
 % Obtain the mode-1 unfolding of tensor Z
@@ -132,13 +132,13 @@ clear tensor_size Z_mode_1 PM
 end
 
 function [M] = updateM (Z,A,P,options)
-%% input 
+%% Input 
 % Z: Tensor formed by stacking low-dimensional representations of views
 % A: Consensus anchor matrix
 % P: View preference weight matrix
 % options: Parameters 
 
-%% ouput
+%% output
 % M: Consensus anchor graph
 
 tensor_size = size(Z);
@@ -221,13 +221,13 @@ end
 end
 
 function [W,QW] = updateW(Xhat,Z,QW,options)
-%% input 
+%% Input 
 % Xhat: The imputed multi-view dataset
 % Z: Tensor formed by stacking low-dimensional representations of views
 % QW: Auxiliary matrix for computing the 2,1 norm of matrix W
 % options: Parameters
 
-%% ouput
+%% output
 % W: Feature selection matrix
 % QW: Auxiliary matrix for computing the 2,1 norm of matrix W
 
@@ -243,15 +243,15 @@ end
 end
 
 function [Z] = updateZ(Xhat,W,alpha,A,M,P,options)
-%% input 
+%% Input 
 % Xhat: The imputed multi-view dataset
 % W: Feature selection matrix 
 % alpha: Adaptive weights for each view
 % A: Consensus anchor matrix
-% M: Concensus anchor graph
+% M: Consensus anchor graph
 % P: Anchor preference weight matrix;
 % options: Parameters 
-%% ouput
+%% output
 % Z: Tensor formed by stacking low-dimensional representations of views.
 
 V = size(Xhat,2);
