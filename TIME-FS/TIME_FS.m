@@ -20,7 +20,7 @@ G = cell(1,V);
 E = cell(1,V);
 Xhat = cell(1,V);
 for v = 1:V
-    % Construct the missing sample indicator matrix for v-th view
+    % Construct the missing sample indicator matrix for the v-th view
     idx_v = find(ismissing(X{v}(1,:))); 
     ns = numel(idx_v); 
     G{v} = sparse(1:ns, idx_v, 1, ns, n); 
