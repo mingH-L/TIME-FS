@@ -25,7 +25,7 @@ for v = 1:V
     ns = numel(idx_v); 
     G{v} = sparse(1:ns, idx_v, 1, ns, n); 
 
-    %Initialize the missing values by mean values   
+    %Initialize the missing values using the mean.   
     dv = size(X{v}, 1); 
     Xv = X{v}; 
     Xv(:, idx_v) = 0; 
@@ -161,11 +161,11 @@ clear tensor_size Z_mode_2 PA Y tmp
 end
 
 function P = updateP(Z,A,M)
-%% input 
+%% Input 
 % Z: Tensor formed by stacking low-dimensional representations of views
 % A: Consensus anchor matrix
-% M: Concensus anchor graph
-%% ouput
+% M: Consensus anchor graph
+%% output
 % P: View preference weight matrix
 
 % Obtain the horizontal mode-3 unfolding of tensor Z
@@ -180,14 +180,14 @@ clear Z_mode_3 tensor_size MA
 end 
 
 function [alpha] = updateAlpha(Xhat,W,Z,QW,options)
-%% input 
+%% Input 
 % Xhat: The imputed multi-view dataset
 % W: Feature selection matrix 
 % Z: Tensor formed by stacking low-dimensional representations of views
 % QW: Auxiliary matrix for computing the 2,1 norm of matrix W
 % options: parameters 
-%% ouput
-% alpha: Adatptive weights of each views
+%% output
+% alpha: Adaptive weights of each view
 
 V = size(Xhat,2); 
 
@@ -202,12 +202,12 @@ alpha = d.^(1/(1-options.gamma))/sum(d.^(1/(1-options.gamma)));
 end
 
 function [E] = updateE(W,Z,G)
-%% input 
+%% Input 
 % W: Feature selection matrix 
 % Z: Tensor formed by stacking low-dimensional representations of views
 % G: Missing samples indicator matrix for each view 
 % options: Parameters 
-%% ouput
+%% output
 % E: Adaptive imputation matrix for missing samples in each view
 
 V = size(W,2); 
