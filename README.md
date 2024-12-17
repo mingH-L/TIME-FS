@@ -13,7 +13,7 @@ The file TIME_FS.m serves as the core component of our algorithm and provides de
 
 The file Main.m illustrates the usage of the TIME-FS algorithm.
 
-If you have any question, please don't hesitate to contact us: huangyy@swufe.edu.cn; lu.m.h@foxmail.com
+If you have any question, please don't hesitate to contact us: lu.m.h@foxmail.com
 
 Citation
 ---------
