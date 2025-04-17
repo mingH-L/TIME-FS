@@ -236,7 +236,7 @@ W = cell(1,V);
 
 for v = 1:V
     Xv_hat = Xhat{v};
-    W{v} = (Xv_hat*Z(:,:,v)')./(1-options.lambda*QW{v});
+    W{v} = (Xv_hat*Z(:,:,v)')./(1+options.lambda*QW{v});
     QW{v} = 1./(2*sqrt(sum(W{v}.*W{v},2)+eps));
 end
 
