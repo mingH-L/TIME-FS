@@ -17,6 +17,7 @@ options.gamma = 6; options.lambda = 0.001; options. eta = 1;
 % Use the feature selection matrices W to select features
 % and evalute the seleced features by k-means clustering
 Xhat = cell2mat(Xhat');
+Xhat = mapminmax(Xhat,0,1);
 W = cell2mat(W'); %Concatenate W{v} vertically
 [~,idx] = sort(sum(W.*W,2),'descend');
 d = size(Xhat,1); %The number of total features.
